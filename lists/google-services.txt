@@ -1,0 +1,8 @@
+# google services
+com.android.vending  # playstore
+com.google.android.gms  # play services
+com.google.android.gsf  # play services framework
+com.google.android.overlay.gmsconfig.gsa
+com.google.android.overlay.gmsconfig.geotz
+com.google.android.overlay.gmsconfig.common
+com.google.android.gms.supervision

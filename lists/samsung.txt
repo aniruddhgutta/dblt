@@ -1,0 +1,111 @@
+# samsung
+com.mygalaxy  # my galaxy
+com.aura.oobe.samsung
+android.autoinstalls.config.samsung
+com.samsung.aasaservice
+com.samsung.android.alive.service
+com.samsung.android.allshare.service.mediashare
+com.samsung.android.app.appsedge
+com.samsung.android.app.camera.sticker.facearavatar.preload
+com.samsung.android.app.clipboardedge
+com.samsung.android.app.cocktailbarservice
+com.samsung.android.app.omcagent
+com.samsung.android.app.settings.bixby
+com.samsung.android.app.taskedge
+com.samsung.android.app.watchmanagerstub
+com.samsung.android.ardrawing
+com.samsung.android.aremoji
+com.samsung.android.aremojieditor
+com.samsung.android.authfw
+com.samsung.android.bbc.bbcagent
+com.samsung.android.beaconmanager
+com.samsung.android.bixby.agent  # bixby
+com.samsung.android.bixbyvision.framework  # bixby
+com.samsung.android.bixby.wakeup  # bixby
+com.samsung.android.dbsc
+com.samsung.android.dqagent
+com.samsung.android.easysetup
+com.samsung.android.fmm
+com.samsung.android.game.gametools
+com.samsung.android.ipsgeofence
+com.samsung.android.kidsinstaller
+com.samsung.android.knox.analytics.uploader
+com.samsung.android.knox.attestation
+com.samsung.android.knox.containercore
+com.samsung.android.knox.kpecore
+com.samsung.android.knox.pushmanager
+com.samsung.android.knox.zt.framework
+com.samsung.knox.securefolder   # secure folder
+com.sec.enterprise.knox.cloudmdm.smdms
+com.knox.vpn.proxyhandler
+com.samsung.android.mapsagent
+com.samsung.android.mcfds
+com.samsung.android.mdecservice
+com.samsung.android.mdm
+com.samsung.android.mdx
+com.samsung.android.mfi
+com.samsung.android.networkdiagnostic
+com.samsung.android.peripheral.framework
+com.samsung.android.rampart
+com.samsung.android.samsungpass  # samsung pass
+com.samsung.android.samsungpassautofill  # samsung pass
+com.samsung.android.samsungpositioning
+com.samsung.android.scloud  # samsung cloud
+com.samsung.android.scpm
+com.samsung.android.sdm.config
+com.samsung.android.service.peoplestripe
+com.samsung.android.service.stplatform
+com.samsung.android.setupindiaservicestnc
+com.samsung.android.shortcutbackupservice
+com.samsung.android.smartface.overlay
+com.samsung.android.smartswitchassistant  # smart switch
+com.samsung.android.spayfw  # samsung pay
+com.samsung.android.stickercenter  # stickers
+com.samsung.android.svcagent
+com.samsung.android.visionintelligence
+com.samsung.android.visualars
+com.samsung.android.vtcamerasettings
+com.samsung.attribution
+com.samsung.discover  # discover
+com.samsung.discover.sep  # discover
+com.samsung.ecomm.global.in
+com.samsung.logwriter
+com.samsung.oda.service
+com.samsung.android.dynamiclock
+com.samsung.sec.android.teegris.tui_service
+com.samsung.android.themecenter  # theme store
+com.samsung.android.themestore   # theme store
+com.sec.android.app.samsungapps  # galaxy store
+com.samsung.android.app.updatecenter
+com.samsung.android.rubin.app
+com.samsung.android.smartsuggestions  # smart suggestions
+com.samsung.android.smartmirroring
+com.samsung.android.mydevice
+com.osp.app.signin  # samsung account
+com.samsung.android.scs
+com.samsung.android.hwresourceshare.storage
+com.samsung.android.mcfserver
+com.samsung.android.app.parentalcare
+com.samsung.android.inputshare
+# com.samsung.android.app.routines  # modes and routines
+com.samsung.gpuwatchapp
+com.samsung.storyservice
+com.samsung.android.game.gos  # game optimisation service
+com.samsung.android.intellivoiceservice
+com.samsung.android.appseparation
+com.samsung.android.da.daagent
+com.samsung.android.sm.devicesecurity
+com.samsung.android.kmxservice
+com.samsung.android.gru
+com.samsung.SMT.lang_vi_vn_f00  # language pack
+com.samsung.SMT.lang_es_us_f00  # language pack
+com.samsung.SMT.lang_en_gb_f00  # language pack
+com.samsung.SMT.lang_th_th_f00  # language pack
+com.samsung.SMT.lang_es_es_f00  # language pack
+com.samsung.SMT.lang_ru_ru_f00  # language pack
+com.samsung.SMT.lang_pl_pl_f00  # language pack
+com.samsung.SMT.lang_es_mx_f00  # language pack
+com.samsung.SMT.lang_it_it_f00  # language pack
+com.samsung.SMT.lang_de_de_f00  # language pack
+com.samsung.SMT.lang_fr_fr_f00  # language pack
+com.samsung.SMT.lang_pt_br_f00  # language pack

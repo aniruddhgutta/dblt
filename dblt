@@ -1,0 +1,140 @@
+#!/bin/sh
+# Simple interactive (and automatic) debloating script for android devices
+
+log() {
+    printf '%b%s %b%s%b %s\n' \
+        "$c1" "${3:-->}" "${c3}${2:+$c2}" "$1" "$c3" "$2" >&2
+    
+    printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$1 $2" >> "$logfile"
+}
+
+war() {
+    log "$1" "$2" "${3:-WARNING}"
+}
+
+die() {
+    log "$1" "$2" "${3:-ERROR}"
+    exit 1
+}
+
+device_check() {
+    devices=$(adb devices </dev/null | tail -n +2 | grep 'device$')
+
+    dev=$(printf "%s" "$devices" | head -n 1)
+    dev=${dev%%[[:space:]]*}
+
+    [ -z "$dev" ] && die "No device connected"
+    log "$dev" "Connected device" "INFO"
+
+    total=$(adb devices </dev/null | tail -n +2 | grep -c 'device$')
+    [ "$total" -gt 1 ] && war "Multiple devices connected, using first: $dev"
+}
+
+install() {
+    log "$1" "Installing package"
+    if adb shell pm list packages </dev/null | grep -q "$1"; then
+        war "$1" "Already installed, skipping"
+    else
+        if adb shell cmd package install-existing "$1" </dev/null; then
+            log "$1" "Installed"
+        else
+            war "$1" "Failed" "ERROR"
+        fi
+    fi
+}
+
+remove() {
+    log "$1" "Removing package"
+    if adb shell pm list packages </dev/null | grep -q "$1"; then
+        if adb shell pm uninstall -k --user 0 "$1" </dev/null; then
+            log "$1" "Uninstalled"
+        else
+            war "$1" "Failed" "ERROR"
+        fi
+    else
+        war "Already removed, skipping" 
+    fi
+}
+
+debloat() {
+    device_check
+    log "Debloating device"
+
+    [ -d ./lists ] || die "Package lists directory (./lists) not found"
+
+    set -- ./lists/*.txt
+    [ "$1" = "./lists/*.txt" ] && die "Package lists (*.txt) not found"
+
+    lists=$(printf "%s\n" "$@" | xargs -n1 basename | 
+        fzf -m --prompt="Select lists: ")
+
+    [ -z "$lists" ] && die "No lists selected"
+
+    printf "%s\n" "$lists" | while IFS= read -r list; do
+        list_path="./lists/$list"
+        log "$list" "Reading from $list_path"
+
+        while IFS= read -r line; do
+            line="${line%%#*}"   # remove comments
+            line="${line#"${line%%[![:space:]]*}"}" # trim leading
+            line="${line%"${line##*[![:space:]]}"}" # trim trailing
+            [ -z "$line" ] && continue
+            remove "$line" || war "$line" "Failed"
+        done < "$list_path"
+
+    done || die "Debloat failed. Check $logfile for details"
+    log "Successfully completed debloat. Check $logfile for details"
+}
+
+interactive() {
+    device_check
+    pkg_list="$(adb shell pm list packages -u </dev/null | cut -d: -f2)"
+    selected=$(printf "%s" "$pkg_list" | fzf -m --prompt="Select packages: ")
+    [ -z "$selected" ] && die "No packages selected"
+
+    printf "%s\n" "$selected" | while IFS= read -r pkg; do
+    [ -z "$pkg" ] && continue
+    case "$1" in
+        install) install "$pkg" ;;
+        remove)  remove "$pkg" ;;
+        *) die "$1" "Invalid option" ;;
+    esac
+done
+}
+
+list() {
+    device_check
+    for pkg in $(adb shell pm list packages -u </dev/null | cut -d: -f2); do
+        log "$pkg" ""
+    done
+}
+
+usage() {
+    log "dblt [d|i|r]"
+    log "debloat    Remove all packages from selected package lists"
+    log "install    Install all selected packages"
+    log "remove     Remove all selected packages"
+    log "list       List all installed and uninstalled packages"
+    rm "$logfile"
+    exit "$1"
+}
+
+main() {
+    dir="${XDG_CACHE_HOME:-$HOME/.cache}/dblt";
+    logfile="$dir/$(date '+%Y%m%d-%H%M%S').log"
+    c1='\033[1;33m' c2='\033[1;34m' c3='\033[m'
+    mkdir -p "$dir"
+
+    command -v fzf >/dev/null 2>&1 || die "fzf" "not found"
+
+    case "$1" in
+        d|-d|debloat)   debloat ;;
+        i|-i|install)   interactive "install" ;;
+        r|-r|remove)    interactive "remove" ;;
+        l|-l|list)      list ;;
+        h|-h|help|'')   usage 0 ;;
+        *)              war "Invalid command - $1" "" "ERROR"; usage 1 ;;
+    esac
+}
+
+main "$@"
