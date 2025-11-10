@@ -88,6 +88,9 @@ com.samsung.android.mcfserver
 com.samsung.android.app.parentalcare
 com.samsung.android.inputshare
 # com.samsung.android.app.routines  # modes and routines
+com.samsung.android.app.reminder
+com.sec.android.app.kidshome
+com.samsung.android.messaging
 com.samsung.gpuwatchapp
 com.samsung.storyservice
 com.samsung.android.game.gos  # game optimisation service
