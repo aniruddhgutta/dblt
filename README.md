@@ -1,6 +1,6 @@
 # dblt
 
-**dblt** (short for *debloat*) is a simple, POSIX-compliant shell script for **debloating Android devices** via `adb`.  
+**dblt** (short for debloat) is a simple, POSIX-compliant shell script for debloating Android devices via `adb`.
 It lets you remove preinstalled apps in bulk, restore them, or interactively pick packages to manage — all from the command line.
 ![](./demo/dblt-demo.webp)
 

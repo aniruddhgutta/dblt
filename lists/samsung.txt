@@ -100,6 +100,7 @@ com.samsung.android.da.daagent
 com.samsung.android.sm.devicesecurity
 com.samsung.android.kmxservice
 com.samsung.android.gru
+com.samsung.android.accessibility.talkback  # talkback accessibility
 com.samsung.SMT.lang_vi_vn_f00  # language pack
 com.samsung.SMT.lang_es_us_f00  # language pack
 com.samsung.SMT.lang_en_gb_f00  # language pack
@@ -112,3 +113,13 @@ com.samsung.SMT.lang_it_it_f00  # language pack
 com.samsung.SMT.lang_de_de_f00  # language pack
 com.samsung.SMT.lang_fr_fr_f00  # language pack
 com.samsung.SMT.lang_pt_br_f00  # language pack
+
+# for android 13 and below
+com.sec.android.app.fm
+com.samsung.android.app.spage
+com.samsung.android.spaymini
+com.samsung.android.aliveprivacy
+com.samsung.android.app.routines
+com.samsung.android.arzone
+com.samsung.android.game.gos
+com.samsung.android.game.gamehome

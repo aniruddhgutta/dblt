@@ -40,3 +40,7 @@ com.hiya.star
 com.microsoft.appmanager
 com.microsoft.skydrive
 com.opera.max.oem
+
+# for android 13 and below
+com.facebook.katana
+com.netflix.mediaclient
