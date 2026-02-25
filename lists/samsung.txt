@@ -76,6 +76,7 @@ com.samsung.sec.android.teegris.tui_service
 com.samsung.android.themecenter  # theme store
 com.samsung.android.themestore   # theme store
 com.sec.android.app.samsungapps  # galaxy store
+com.samsung.accessory.budsunitemgr	# galaxy buds
 com.samsung.android.app.updatecenter
 com.samsung.android.rubin.app
 com.samsung.android.smartsuggestions  # smart suggestions
